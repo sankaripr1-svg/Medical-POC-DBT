@@ -1,0 +1,42 @@
+version: 2
+sources:
+- name: bronze
+  database: MEDICAL_POC_DB
+  schema: BRONZE
+  tables:
+  - name: raw_patient
+    identifier: RAW_PATIENT
+    description: Landing table for patient API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_provider
+    identifier: RAW_PROVIDER
+    description: Landing table for provider API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_facility
+    identifier: RAW_FACILITY
+    description: Landing table for facility API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_encounter
+    identifier: RAW_ENCOUNTER
+    description: Landing table for encounter API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_diagnosis
+    identifier: RAW_DIAGNOSIS
+    description: Landing table for diagnosis API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_medical_procedure
+    identifier: RAW_MEDICAL_PROCEDURE
+    description: Landing table for medical_procedure API payloads; ingestion owned
+      by upstream API procedures.
+  - name: raw_claim
+    identifier: RAW_CLAIM
+    description: Landing table for claim API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_lab_result
+    identifier: RAW_LAB_RESULT
+    description: Landing table for lab_result API payloads; ingestion owned by upstream
+      API procedures.
+  - name: raw_medication
+    identifier: RAW_MEDICATION
+    description: Landing table for medication API payloads; ingestion owned by upstream
+      API procedures.

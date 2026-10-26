@@ -1,0 +1,13 @@
+medical_poc_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
+      authenticator: externalbrowser
+      role: "{{ env_var('DBT_SNOWFLAKE_ROLE') }}"
+      database: MEDICAL_POC_DB
+      warehouse: MEDICAL_POC_WH
+      schema: DBT_DEV
+      threads: 4

@@ -1,0 +1,20 @@
+version: 2
+models:
+- name: patient_360
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: disease_analytics
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: procedure_analytics
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: provider_kpi
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: facility_kpi
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: claim_analytics
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: readmission_kpi
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: daily_clinical_summary
+  description: Gold reporting model converted from legacy Snowflake stored procedure.
+- name: abnormal_lab_kpi
+  description: Gold reporting model converted from legacy Snowflake stored procedure.

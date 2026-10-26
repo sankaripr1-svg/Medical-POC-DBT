@@ -1,0 +1,86 @@
+version: 2
+models:
+- name: patient
+  description: Silver cleaned patient model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: patient_id
+    data_tests:
+    - not_null
+    - unique
+  - name: date_of_birth
+    data_tests:
+    - date_not_in_future
+  - name: gender
+    data_tests:
+    - accepted_gender
+- name: provider
+  description: Silver cleaned provider model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: provider_id
+    data_tests:
+    - not_null
+    - unique
+- name: facility
+  description: Silver cleaned facility model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: facility_id
+    data_tests:
+    - not_null
+    - unique
+- name: encounter
+  description: Silver cleaned encounter model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: encounter_id
+    data_tests:
+    - not_null
+    - unique
+  data_tests:
+  - encounter_dates
+- name: diagnosis
+  description: Silver cleaned diagnosis model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: diagnosis_id
+    data_tests:
+    - not_null
+    - unique
+- name: medical_procedure
+  description: Silver cleaned medical_procedure model generated from Snowflake stored
+    procedure logic.
+  columns:
+  - name: procedure_id
+    data_tests:
+    - not_null
+    - unique
+- name: claim
+  description: Silver cleaned claim model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: claim_id
+    data_tests:
+    - not_null
+    - unique
+  data_tests:
+  - claim_amounts
+- name: lab_result
+  description: Silver cleaned lab_result model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: lab_result_id
+    data_tests:
+    - not_null
+    - unique
+  data_tests:
+  - lab_reference
+- name: medication
+  description: Silver cleaned medication model generated from Snowflake stored procedure
+    logic.
+  columns:
+  - name: medication_id
+    data_tests:
+    - not_null
+    - unique

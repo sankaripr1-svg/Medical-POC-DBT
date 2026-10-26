@@ -1,0 +1,12 @@
+{{ config(materialized='table') }}
+-- Converted from GOLD.SP_BUILD_ABNORMAL_LAB_KPI.
+with converted_result (TEST_CODE, TEST_NAME, TOTAL_TESTS, HIGH_RESULTS, LOW_RESULTS, ABNORMAL_RATE, REFRESHED_AT) as (
+SELECT TEST_CODE,TEST_NAME,COUNT(*),
+       COUNT_IF(ABNORMAL_FLAG='HIGH'),
+       COUNT_IF(ABNORMAL_FLAG='LOW'),
+       ROUND(100*COUNT_IF(ABNORMAL_FLAG IN ('HIGH','LOW'))/NULLIF(COUNT(*),0),2),
+       CURRENT_TIMESTAMP()
+FROM {{ ref('lab_result') }}
+GROUP BY TEST_CODE,TEST_NAME
+)
+select * from converted_result
