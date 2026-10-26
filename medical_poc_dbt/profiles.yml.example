@@ -1,13 +1,19 @@
+# COPY this file to %USERPROFILE%\.dbt\profiles.yml (outside this repository).
+# IMPORTANT: HCPETXC-IX05925 is PROVISIONAL: IX05925 came from CURRENT_ACCOUNT()
+# (the locator), NOT CURRENT_ACCOUNT_NAME(). Verify the correct account string using
+# SELECT CURRENT_ORGANIZATION_NAME() || '-' || CURRENT_ACCOUNT_NAME();
+# Then replace account below. Do not commit credentials or a real profiles.yml.
 medical_poc_dbt:
   target: dev
   outputs:
     dev:
       type: snowflake
-      account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
+      account: "HCPETXC-IX05925"  # VERIFY using sql/check_snowflake_account.sql
+      user: "muthuselvimsc04"
       authenticator: externalbrowser
-      role: "{{ env_var('DBT_SNOWFLAKE_ROLE') }}"
+      role: ACCOUNTADMIN  # trial-only; use dedicated dbt role for real deployments
       database: MEDICAL_POC_DB
       warehouse: MEDICAL_POC_WH
       schema: DBT_DEV
       threads: 4
+      client_session_keep_alive: false
