@@ -8,9 +8,9 @@ medical_poc_dbt:
   outputs:
     dev:
       type: snowflake
-      account: "HCPETXC-IX05925"  # VERIFY using sql/check_snowflake_account.sql
+      account: "HCPETXC-VI01889"  # VERIFY using sql/check_snowflake_account.sql
       user: "muthuselvimsc04"
-      authenticator: externalbrowser
+      password: "{{ env_var('DBT_SNOWFLAKE_PASSWORD') }}"
       role: ACCOUNTADMIN  # trial-only; use dedicated dbt role for real deployments
       database: MEDICAL_POC_DB
       warehouse: MEDICAL_POC_WH
