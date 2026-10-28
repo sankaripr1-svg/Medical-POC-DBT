@@ -1,0 +1,18 @@
+version: 2
+
+snapshots:
+  - name: patient_history
+    relation: ref('patient')
+    config:
+      unique_key: patient_id
+      strategy: check
+      check_cols:
+        - first_name
+        - last_name
+        - city
+        - state
+        - phone
+        - email
+        - active_flag
+      schema: snapshots
+      hard_deletes: ignore

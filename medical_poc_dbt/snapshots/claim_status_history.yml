@@ -1,0 +1,14 @@
+version: 2
+
+snapshots:
+  - name: claim_status_history
+    relation: ref('claim')
+    config:
+      unique_key: claim_id
+      strategy: check
+      check_cols:
+        - claim_status
+        - approved_amount
+        - patient_pay_amount
+      schema: snapshots
+      hard_deletes: ignore
