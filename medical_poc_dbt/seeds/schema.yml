@@ -1,0 +1,11 @@
+version: 2
+seeds:
+  - name: claim_status_mapping
+    columns:
+      - name: claim_status
+        data_tests:
+          - unique
+          - not_null
+      - name: status_category
+        data_tests:
+          - not_null

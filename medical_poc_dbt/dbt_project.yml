@@ -20,3 +20,11 @@ models:
     gold:
       +materialized: table
       +schema: gold
+seeds:
+  medical_poc_dbt:
+    +schema: seeds
+    claim_status_mapping:
+      +column_types:
+        claim_status: varchar(30)
+        status_category: varchar(30)
+        is_final: boolean
